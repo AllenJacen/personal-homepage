@@ -1,0 +1,26 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+li{
+    list-style: none;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+image{
+    border: 0;
+    display: block;
+}
+body{
+    overflow:scroll;
+    overflow-x:hidden;
+}/*去掉浏览器下面的滚动条*/
+.row-fluid{
+    margin:0;
+}
+.container-fluid{
+    margin: 0;
+    padding: 0;
+}
