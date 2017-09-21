@@ -3,7 +3,7 @@
  */
 requirejs.config({
     paths:{
-        jquery:'jquery-1.12.4'
+        jquery:'jquery-1.12.4.min'
     }
 });
 require(['jquery','ProgressBar'],function($,ProgressBar){

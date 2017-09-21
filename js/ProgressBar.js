@@ -1,7 +1,7 @@
 /* Created by Administrator on 2017/9/17. */
 requirejs.config({
     paths:{
-        jquery:'jquery-1.12.4',
+        jquery:'jquery-1.12.4.min',
         jquerySvg:'jquery.svg.min',
         Svgdom:'jquery.svgdom.min'
     },
