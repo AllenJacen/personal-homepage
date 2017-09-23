@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        body{
+            background: black;
+            perspective: 1000px;
+            perspective-origin: 50% 50%;
+        }
+        #container{
+            margin: 200px auto;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            animation: rotate 2s linear infinite;
+        }
+        .cube{
+           width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.6);
+            font-size: 80px;
+            line-height: 200px;
+            text-align: center;
+            border: 1px solid #fff;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        #one{
+         transform: rotateY(180deg) translateZ(100px);
+        }
+        #two{
+            transform:rotateY(-90deg) translateZ(100px);
+        }
+        #three{
+            transform:rotateY(90deg) translateZ(100px);
+        }
+        #four{
+            transform:rotateX(90deg) translateZ(100px);
+        }
+        #five{
+            transform:rotateX(-90deg) translateZ(100px);
+        }
+        #six{
+            transform: translateZ(100px);
+        }
+        @keyframes rotate {
+        from{
+
+        }
+        to{
+         transform: rotateY(-360deg);
+        }
+        }
+
+        #big{
+            height: 100px;
+            width: 100px;
+            border-radius: 90%;
+            border: 5px solid black;
+            position: relative;
+            top: 50px;
+            left: 50px;
+
+        }
+        #white{
+            height: 50px;
+            width: 50px;
+            border-radius: 90%;
+            border-left: 5px solid black;
+            position: absolute;
+            top: -3px;
+            left: 25px;
+            /*border-right-color:transparent;*/
+
+        }
+        #black{
+            height: 50px;
+            width: 50px;
+            border-radius: 90%;
+            border-right: 5px solid black;
+            position: absolute;
+            bottom: 0px;
+            left: 25px;
+            /*border-left-color:transparent;*/
+        }
+        #ws{
+            height: 12.5px;
+            width: 12.5px;
+            border-radius: 90%;
+            border: 2px solid black;
+            background: black;
+            position: absolute;
+            top: 12.5px;
+            left: 12.5px;
+        }
+        #bs{
+            height: 12.5px;
+            width: 12.5px;
+            border-radius: 90%;
+            border: 2px solid black;
+            position: absolute;
+            top: 12.5px;
+            left: 12.5px;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="big">
+        <div id="white">
+            <div id="ws"></div>
+        </div>
+        <div id="black">
+            <div id="bs"></div>
+        </div>
+    </div>
+    <div id="one" class="cube">1</div>
+    <div id="two" class="cube">2</div>
+    <div id="three" class="cube">3</div>
+    <div id="four" class="cube">4</div>
+    <div id="five" class="cube">5</div>
+    <div id="six" class="cube">6</div>
+</div>
+</body>
+</html>

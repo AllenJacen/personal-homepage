@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+       *{
+           margin: 0;
+           padding: 0;
+       }
+        body,html{
+            width: 100%;
+            height: 100%;
+        }
+        #container{
+            width: 100%;
+            height: 100%;
+            background: url("img/bg.jpg");
+            position: relative;
+        }
+       #container .imgs{
+            width: 125px;
+            height: 125px;
+            border: 5px solid white;
+            -webkit-box-shadow:2px 2px 2px 2px rgba(0,0,0,0.5);
+            -moz-box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.5);;
+            -ms-box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.5);;
+            -o-box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.5);
+            box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.5);
+           position: absolute;
+           left: -500px;
+           top: -500px;
+           cursor: pointer;
+           -webkit-transition: all 1s ease;
+           -moz-transition: all 1s ease;
+           -ms-transition: all 1s ease;
+           -o-transition: all 1s ease;
+           transition: all 1s ease;
+        }
+       #container span{
+           width: 125px;
+           height: 125px;
+           /*border: 1px solid white;*/
+           position: absolute;
+           cursor: pointer;
+           opacity: 0;
+           transition: all 0.1s ease;//还有问题
+           /*display: none;*/
+       }
+      #prev,#next{
+           width: 60px;
+           height:60px;
+          background-color: #ffffff;
+          background-repeat: no-repeat;
+          background-position: center;
+          position: absolute;
+          margin-top: -30px;
+          cursor: pointer;
+          top: 50%;
+          display: none;
+            }
+        #prev{
+            background-image: url("img/prev.png");
+            left: 0;
+            -webkit-border-radius:0 8px 8px 0;
+            -moz-border-radius:0 8px 8px 0;
+            border-radius:0 8px 8px 0;
+        }
+        #next{
+            background-image: url("img/next.png");
+            right: 0;
+            -webkit-border-radius:8px 0 0 8px;
+            -moz-border-radius:8px 0 0 8px;
+            border-radius:8px 0 0 8px;
+
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<div id="prev"></div>
+<div id="next"></div>
+<script>
+    (function(){
+        var ROW=4,COL=6,NUM=ROW*COL,BIGW=750,BIGH=500,SPANW=SPANH=125;
+        var count=0;
+        var index = 0;
+        var aDiv;
+        var fGapRow;
+        var fGapCol;
+        var widthImg;
+        var heightImg;
+        var rowGroup;
+        var colGroup;
+        var oContainer=document.getElementById("container");
+        //预加载
+        for(var i= 0;i<NUM;i++){
+            //预加载小图片
+            var oThumbsImg=new Image();
+            oThumbsImg.onload=function(){
+                count++;
+                if(count == NUM*2){
+                    loadsuccess();
+                }
+            };
+            oThumbsImg.src="img/thumbs/"+(i+1)+".jpg";
+
+            //预加载大图片
+            var oBigImg=new Image();
+            oBigImg.onload=function(){
+                count++;
+                if(count== NUM*2){
+                    loadsuccess();
+                }
+            };
+            oBigImg.src="img/"+(i+1)+".jpg";
+        }
+
+
+
+        function loadsuccess(){
+            aDiv=oContainer.getElementsByTagName("div");
+            //图片的添加
+           for(var i=0;i<ROW;i++){
+               for(var j=0;j<COL;j++){
+                  index++;
+                 var  oDiv=document.createElement('div');
+                   oDiv.ses={
+                       row:i+1,
+                       col:j+1
+                   };
+                   oDiv.index=index;
+                   oDiv.className="imgs";
+                   oDiv.style.backgroundImage='url("img/thumbs/'+(index)+'.jpg")';
+                   oContainer.appendChild(oDiv);
+                   aDiv[index-1].innerHTML="<span></span>";
+               }
+//           oContainer.innerHTML +="<div class='imgs'></div>";
+//               注意：用+= 而不是= ，=是赋值，会覆盖上次添加的
+           }
+//           图片的位置计算
+             widthImg=aDiv[0].offsetWidth;
+             heightImg=aDiv[0].offsetHeight;
+             fGapRow=(oContainer.offsetWidth-widthImg*COL)/(COL+1);
+             fGapCol=(oContainer.offsetHeight-heightImg*ROW)/(ROW+1);
+             rowGroup=widthImg+fGapRow;
+             colGroup=heightImg+fGapCol;
+//            console.log(aDiv[0].index);
+            for(var i=0;i<NUM;i++){
+              aDiv[i].style.left=fGapRow+rowGroup*(aDiv[i].ses.col-1)+'px';
+              aDiv[i].style.top=fGapCol +colGroup*(aDiv[i].ses.row-1) +'px';
+              aDiv[i].style.transform='rotate('+(Math.random()*40-20)+'deg)';
+              aDiv[i].style.transitionDelay= (NUM-i)*100+"ms";
+            }
+//            console.log(oContainer.offsetWidth);
+        };
+            //点击小图片后
+         //定义标志位
+       var sign=true;//sign是标杆，sign为true时表示散开要合并，sign为false时表示合并要散开。
+       var  bigGapRow=(oContainer.offsetWidth-BIGW)/2;
+       var  bigGapCol=(oContainer.offsetHeight-BIGH)/2;
+        var oPrev=document.getElementById("prev");
+        var oNext=document.getElementById("next");
+        //利用事件委托，把子元素事件委托给父元素绑定
+            oContainer.onclick=function(e){
+//                var target= e.target;
+                //e.target=>container/span/div
+//              console.log("target");
+           if(this !== e.target){
+               if(sign){//sign为true时表示散开要合并
+                   for(var i=0;i<aDiv.length;i++){
+                       aDiv[i].style.left= bigGapRow+SPANW*(aDiv[i].ses.col-1) +"px";
+                       aDiv[i].style.top = bigGapCol+SPANH*(aDiv[i].ses.row-1)+"px";
+                       aDiv[i].style.borderWidth= 1+"px";
+                       aDiv[i].style.transform='rotate(0deg)';
+                       aDiv[i].style.transitionDelay="0ms";
+                       var oSpan=aDiv[i].getElementsByTagName("span")[0];
+                       oSpan.style.opacity=1;
+//                       oSpan.style.display="block";
+                       if(e.target.className=="imgs"){
+                          index= e.target.index;
+                       }else{
+                           index=e.target.parentNode.index;
+                       }
+                       oSpan.style.backgroundImage="url(img/"+index+".jpg)";
+                       oSpan.style.backgroundPosition= -SPANW*(aDiv[i].ses.col-1)+"px "+(-SPANH*(aDiv[i].ses.row-1))+"px";
+                   }
+               oPrev.style.display=oNext.style.display="block";
+               }else{//sign为false时表示合并要散开。
+                 for(var i=0;i<aDiv.length;i++){
+                     aDiv[i].style.left=fGapRow+rowGroup*(aDiv[i].ses.col-1)+'px';
+                     aDiv[i].style.top=fGapCol +colGroup*(aDiv[i].ses.row-1) +'px';
+                     aDiv[i].style.transform='rotate('+(Math.random()*40-20)+'deg)';
+                     var oSpan=aDiv[i].getElementsByTagName("span")[0];
+                     oSpan.style.transitionDelay = "0ms";
+                     oSpan.style.opacity=0;
+                 }
+                   oPrev.style.display=oNext.style.display="none";
+               }
+               sign= !sign;
+           }
+    };
+
+        oPrev.onclick=oNext.onclick=function(){
+            if(this==oPrev){
+                index--;
+                if(index==0){
+                    index=NUM;
+                }
+            }else{
+                index++;
+                if(index==NUM+1){
+                    index=1;
+                }
+            }
+            var aOrder =[];
+            var afir=[];
+            for(var i=0;i<aDiv.length;i++){
+                aOrder.push(i);
+                afir.push(i);
+            }
+            aOrder.sort(
+                    function(){
+                        return Math.random() - 0.5;
+                    }
+            );
+//            console.log(aOrder);
+             for(var i=0;i<aDiv.length;i++){
+                 var oSpan;
+                 if(index%2==0){
+                     oSpan=aDiv[afir[i]].getElementsByTagName("span")[0];
+                 }else{
+                     oSpan=aDiv[aOrder[i]].getElementsByTagName("span")[0];
+                 }
+                 oSpan.style.backgroundImage="url(img/"+index+".jpg)";
+                 oSpan.style.transitionDelay= (i+2)*50+"ms";
+          }
+        }
+    })();
+
+</script>
+</body>
+</html>
