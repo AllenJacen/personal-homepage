@@ -3,111 +3,161 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <style>
         *{
-            padding: 0px;
-            margin: 0px;
+            padding: 0;
+            margin: 0;
+        }
+        html{
+            font-size: 20px;
         }
         body{
             background: black;
-            perspective: 1000px;
+            -webkit-perspective: 50rem;
+            -moz-perspective: 50rem;
+            -ms-perspective: 50rem;
+            -o-perspective: 50rem;
+            perspective: 50rem;
+            -webkit-perspective-origin: 50% 50%;
+            -moz-perspective-origin: 50% 50%;
+            -ms-perspective-origin: 50% 50%;
+            -o-perspective-origin: 50% 50%;
             perspective-origin: 50% 50%;
         }
         #container{
-            margin: 200px auto;
-            width: 200px;
-            height: 200px;
+            margin: 10rem auto;
+            width: 10rem;
+            height: 10rem;
+            -webkit-transform-style: preserve-3d;
+            -moz-transform-style: preserve-3d;
+            -ms-transform-style: preserve-3d;
+            -o-transform-style: preserve-3d;
             transform-style: preserve-3d;
+            -webkit-animation: rotate 2s linear infinite;
+            -moz-animation: rotate 2s linear infinite;
+            -ms-animation: rotate 2s linear infinite;
+            -o-animation: rotate 2s linear infinite;
             animation: rotate 2s linear infinite;
         }
         .cube{
-           width: 200px;
-            height: 200px;
+           width: 10rem;
+            height: 10rem;
             background: rgba(255, 255, 255, 0.6);
-            font-size: 80px;
-            line-height: 200px;
+            font-size: 4rem;
+            line-height: 10rem;
             text-align: center;
-            border: 1px solid #fff;
+            border: 0.05rem solid #fff;
             position: absolute;
             top: 0;
             left: 0;
         }
         #one{
-         transform: rotateY(180deg) translateZ(100px);
+            -webkit-transform: rotateY(180deg) translateZ(5rem);
+            -moz-transform: rotateY(180deg) translateZ(5rem);
+            -ms-transform: rotateY(180deg) translateZ(5rem);
+            -o-transform: rotateY(180deg) translateZ(5rem);
+            transform: rotateY(180deg) translateZ(5rem);
+
         }
         #two{
-            transform:rotateY(-90deg) translateZ(100px);
+            -webkit-transform:rotateY(-90deg) translateZ(5rem);
+            -moz-transform:rotateY(-90deg) translateZ(5rem);
+            -ms-transform:rotateY(-90deg) translateZ(5rem);
+            -o-transform:rotateY(-90deg) translateZ(5rem);
+            transform:rotateY(-90deg) translateZ(5rem);
         }
         #three{
-            transform:rotateY(90deg) translateZ(100px);
+            -webkit-transform:rotateY(90deg) translateZ(5rem);
+            -moz-transform:rotateY(90deg) translateZ(5rem);
+            -ms-transform:rotateY(90deg) translateZ(5rem);
+            -o-transform:rotateY(90deg) translateZ(5rem);
+            transform:rotateY(90deg) translateZ(5rem);
         }
         #four{
-            transform:rotateX(90deg) translateZ(100px);
+            -webkit-transform:rotateX(90deg) translateZ(5rem);
+            -moz-transform:rotateX(90deg) translateZ(5rem);
+            -ms-transform:rotateX(90deg) translateZ(5rem);
+            -o-transform:rotateX(90deg) translateZ(5rem);
+            transform:rotateX(90deg) translateZ(5rem);
         }
         #five{
-            transform:rotateX(-90deg) translateZ(100px);
+            -webkit-transform:rotateX(-90deg) translateZ(5rem);
+            -moz-transform:rotateX(-90deg) translateZ(5rem);
+            -ms-transform:rotateX(-90deg) translateZ(5rem);
+            -o-transform:rotateX(-90deg) translateZ(5rem);
+            transform:rotateX(-90deg) translateZ(5rem);
         }
         #six{
-            transform: translateZ(100px);
+            -webkit-transform: translateZ(5rem);
+            -moz-transform: translateZ(5rem);
+            -ms-transform: translateZ(5rem);
+            -o-transform: translateZ(5rem);
+            transform: translateZ(5rem);
         }
         @keyframes rotate {
         from{
 
         }
         to{
-         transform: rotateY(-360deg);
+            -webkit-transform: rotateY(-360deg);
+            -moz-transform: rotateY(-360deg);
+            -ms-transform: rotateY(-360deg);
+            -o-transform: rotateY(-360deg);
+            transform: rotateY(-360deg);
         }
         }
 
         #big{
-            height: 100px;
-            width: 100px;
+            height: 5rem;
+            width: 5rem;
             border-radius: 90%;
-            border: 5px solid black;
+            border: 0.25rem solid black;
             position: relative;
-            top: 50px;
-            left: 50px;
+            top: 2.5rem;
+            left: 2.5rem;
 
         }
         #white{
-            height: 50px;
-            width: 50px;
+            height: 2.5rem;
+            width: 2.5rem;
             border-radius: 90%;
-            border-left: 5px solid black;
+            border-left: 0.25rem solid black;
             position: absolute;
-            top: -3px;
-            left: 25px;
+            top: -0.15rem;
+            left: 1.25rem;
             /*border-right-color:transparent;*/
 
         }
         #black{
-            height: 50px;
-            width: 50px;
+            height: 2.5rem;
+            width: 2.5rem;
             border-radius: 90%;
-            border-right: 5px solid black;
+            border-right: 0.25rem solid black;
             position: absolute;
-            bottom: 0px;
-            left: 25px;
+            bottom: 0;
+            left: 1.25rem;
             /*border-left-color:transparent;*/
         }
         #ws{
-            height: 12.5px;
-            width: 12.5px;
+            height: 0.625rem;
+            width: 0.625rem;
             border-radius: 90%;
-            border: 2px solid black;
+            border: 0.1rem solid black;
             background: black;
             position: absolute;
-            top: 12.5px;
-            left: 12.5px;
+            top: 0.625rem;
+            left: 0.625rem;
         }
         #bs{
-            height: 12.5px;
-            width: 12.5px;
+            height: 0.625rem;
+            width: 0.625rem;
             border-radius: 90%;
-            border: 2px solid black;
+            border: 0.1rem solid black;
             position: absolute;
-            top: 12.5px;
-            left: 12.5px;
+            top: 0.625rem;
+            left: 0.625rem;
         }
     </style>
 </head>
