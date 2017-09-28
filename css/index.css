@@ -1,6 +1,3 @@
-/* ------------------------------------------------------------------------------
-   Typography
--------------------------------------------------------------------------------*/
 @import url(http://fonts.googleapis.com/css?family=Open%20Sans:300,400,500,600,700);
 @import url(http://fonts.googleapis.com/css?family=Merriweather:300,400,500,600,700);
 html{
@@ -35,14 +32,30 @@ h5 {
     text-transform: uppercase;
     font-weight: 700;
 }
-
+.smallbox{
+    width: 2rem;
+    height: 2rem;
+    background:#c59a6a;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    text-align: center;
+    line-height: 2rem;
+    padding-top: 0.3rem;
+    font-size: 2rem;
+    border-radius: 10%;
+    z-index: 5;
+    float: inherit;
+    cursor: pointer;
+    display: none;
+}
 /*HEADER部分*/
 header{
     width: 100%;
     /*height: 900px;*/
     height: 0;
     padding-top: 62.5%;
-    background-image: url("../img/bg8.jpg");
+    background-image: url("../img/1.jpg");
     -webkit-background-size: cover;
     background-size:cover;
     /*line-height: 900px;*/
@@ -54,20 +67,21 @@ header{
 header #content{
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 70%;
     margin-left: -30%;
     margin-top:-10%;
     text-align: center;
     color: white;
 }
-#content{
-   /* -webkit-animation-timing-function: ease;
-    -moz-animation-timing-function: ease;
-    -o-animation-timing-function: ease;
-    animation-timing-function: ease;*/
-/*    animate-duration: 2s;    //动画持续时间
-    animate-delay: 1s;    //动画延迟时间
-    animate-iteration-count: 2;    //动画执行次数*/
+#content h1{
+    color: white;
+    /* -webkit-animation-timing-function: ease;
+     -moz-animation-timing-function: ease;
+     -o-animation-timing-function: ease;
+     animation-timing-function: ease;*/
+    /*    animate-duration: 2s;    //动画持续时间
+        animate-delay: 1s;    //动画延迟时间
+        animate-iteration-count: 2;    //动画执行次数*/
 }
 .btn{
     -webkit-border-radius: 1.5rem;
@@ -183,21 +197,26 @@ nav .min-nav span{
     width: 100%;
 }
 .min-nav-main li{
+    color: black;
     cursor: pointer;
     line-height: 2.5rem;
     text-align: center;
     font-size: 1.5rem;
     height: 2.5rem;
     width: 100%;
-    border-bottom: 2px solid;
-    background: #c59a6a;
+    /*border-bottom: 2px solid;*/
+    /*background: #c59a6a;*/
+    background-image: url("../img/1small.jpg");
+    -webkit-background-size: cover;
+    background-size:cover;
 }
 .min-nav-main li a{
     text-decoration: none;
+    color: black;
 }
 .min-nav-main li:hover,.min-nav-main li a:hover{
-   /* color:#c59a6a;*/
-    color: black;
+    /* color:#c59a6a;*/
+    color: #c59a6a;
 }
 
 
@@ -205,9 +224,6 @@ nav .min-nav span{
 
 
 /*ABOUT部分*/
-
-
-
 .about{
     width: 100%;
     /*height: 37.5rem;*/
@@ -306,7 +322,7 @@ p{
     -webkit-border-radius: 50%;
     border-radius: 50%;
     background: #424242;
-   width: 4.5rem;
+    width: 4.5rem;
     height: 4.5rem;
     position: absolute;
     top:50%;
@@ -324,45 +340,28 @@ p{
     height: 1.75rem;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*my-serive部分*/
+
+
 
 /*WORKS部分*/
 
 .works{
     width: 100%;
+    /*position: relative;*/
     /*background: bisque;*/
 }
 /*.works #work-title h4{*/
-    /*margin: 2.5rem auto;*/
-    /*margin-bottom: 1rem;*/
+/*margin: 2.5rem auto;*/
+/*margin-bottom: 1rem;*/
 /*}*/
 .works .controls-portfolio{
-margin-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
+    padding-left: 2.5rem;
 }
 .works #controls-portfolio li{
     margin-top: 1rem;
-display: inline-block;
+    display: inline-block;
     font-size: 14px;
     font-family: "Open Sans", sans-serif;
     color: #606060;
@@ -377,6 +376,7 @@ display: inline-block;
     padding: 0.025rem;
     position: relative;
     float: left;
+    transition: all .3s ease-in;
 }
 .work img{
     width: 100%;
@@ -400,7 +400,7 @@ display: inline-block;
     -webkit-transition: opacity, 0.3s;
     transition: opacity, 0.3s;
 }
-.work .overlay-caption {
+.work .overlay-caption{
     position: absolute;
     text-align: center;
     top: 50%;
@@ -422,11 +422,11 @@ display: inline-block;
     opacity: 0;
 }
 .work h5 {
- /*   margin-bottom: 5px;
-    -moz-transform: translateY(-500%);
-    -ms-transform: translateY(-500%);
-    -webkit-transform: translateY(-500%);
-    transform: translateY(-500%);*/
+    /*   margin-bottom: 5px;
+       -moz-transform: translateY(-500%);
+       -ms-transform: translateY(-500%);
+       -webkit-transform: translateY(-500%);
+       transform: translateY(-500%);*/
     -moz-transform: translate3d(0, -200%, 0);
     -ms-transform: translate3d(0, -200%, 0);
     -webkit-transform: translate3d(0, -200%, 0);
@@ -447,7 +447,7 @@ display: inline-block;
 .work:hover .overlay{
     opacity: 1;
 }
-.work:hover .overlay h5, .work:hover .overlay p {
+.work:hover .overlay h5, .work:hover .overlay p{
     opacity: 1;
     -moz-transform: translate3d(0, 0, 0);
     -ms-transform: translate3d(0, 0, 0);
@@ -479,8 +479,10 @@ display: inline-block;
     transition-property: transform, opacity;
 }
 
-
-
+#controls-portfolio li.selected{
+    color: #c59a6a;
+    font-size:0.8rem;
+}
 /*WORKS部分*/
 
 
@@ -569,7 +571,7 @@ display: inline-block;
     display: inline-block;
 }
 .social ul li a{
-color: black;
+    color: black;
 }
 .social ul li a:hover{
     color:#c59a6a;
@@ -577,7 +579,7 @@ color: black;
 .contact-main .btn{
 
 }
-    /*CONTACT部分*/
+/*CONTACT部分*/
 
 
 /*FOOTER部分*/
@@ -590,11 +592,13 @@ footer{
     color: #757b80;
     font-size: 0.8rem;
 }
-/*footer .footer-main{
+/*
+footer .footer-main{
+
     padding-bottom: 0;
     /!*color: white;*!/
-    display: inline-block;
-}*/
+}
+*/
 
 
 
@@ -664,7 +668,7 @@ footer{
         margin-left: 1rem;
     }
     header{
-        background-image:url("../img/bg81.jpg");
+        background-image:url("../img/1small.jpg");
         padding-top: 91.75%;
     }
     header #content{
@@ -684,6 +688,9 @@ footer{
     /*.works .work{
         width: 100%;
     }*/
+    .works .controls-portfolio{
+        padding-left: 0.8rem;
+    }
     .about-left .btn{
         margin: 0 auto;
     }
@@ -742,11 +749,14 @@ footer{
         width: 100%;
     }
     #content h1{
-        font-size: 2rem;
+        font-size: 1rem;
         font-weight: 200;
+        padding-left:6rem;
     }
     #content p{
+        margin-top: 1rem;
         padding-bottom: 0;
+        padding-left:6rem;
         font-size: 0.75rem;
     }
 
@@ -755,10 +765,6 @@ footer{
     .my-serive {
         height: 85rem;
     }
-    /*footer .footer-main{
-        letter-spacing: inherit;
-        font-size: 0.6rem;
-    }*/
     footer{
         letter-spacing: inherit;
         font-size: 0.6rem;

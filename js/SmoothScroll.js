@@ -21,4 +21,39 @@ $(document).ready(function() {
         });
         $(".min-nav-main").css('display','none');
     });
+    $(".btn-one").on("click",function(){
+        $("html, body").animate({
+            scrollTop: $('#ABOUT').offset().top + "px"
+        }, {
+            duration: 800,
+            easing: "swing"
+        });
+    });
+    $(".btn-two").on("click",function(){
+        $("html, body").animate({
+            scrollTop: $('#WORKS').offset().top + "px"
+        }, {
+            duration: 800,
+            easing: "swing"
+        });
+    });
+    $(".smallbox").on("click",function(){
+        $("html, body").animate({
+            scrollTop: $('#HOME').offset().top + "px"
+        }, {
+            duration: 800,
+            easing: "swing"
+        });
+    });
+    $(window).scroll(function(){
+        if($(document).scrollTop()>=120){
+            $(".smallbox").css({
+                display:'block'
+            })
+        }else{
+            $(".smallbox").css({
+                display:'none'
+            })
+        }
+    })
 });

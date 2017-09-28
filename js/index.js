@@ -80,22 +80,10 @@ $(function(){
         });
     });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    $('#controls-portfolio li').on('click',function(){
+        //console.log( $(this));
+        $(this).addClass('selected').siblings().removeClass('selected');
+    });
 
 
 

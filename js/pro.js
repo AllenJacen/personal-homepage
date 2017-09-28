@@ -17,7 +17,7 @@ require(['jquery','ProgressBar'],function($,ProgressBar){
         fill:'none',
         strokeLinecap:'round',
         strokedasharray:'0,10000',
-        value:'20'
+        value:'88'
     };
     var probar1=new ProgressBar(setting1);
     probar1.init();
@@ -31,7 +31,7 @@ require(['jquery','ProgressBar'],function($,ProgressBar){
         fill:'none',
         strokeLinecap:'round',
         strokedasharray:'0,10000',
-        value:'40'
+        value:'70'
     };
     var probar2=new ProgressBar(setting2);
     probar2.init();
@@ -45,7 +45,7 @@ require(['jquery','ProgressBar'],function($,ProgressBar){
         fill:'none',
         strokeLinecap:'round',
         strokedasharray:'0,10000',
-        value:'70'
+        value:'75'
     };
     var probar3=new ProgressBar(setting3);
     probar3.init();
@@ -59,7 +59,7 @@ require(['jquery','ProgressBar'],function($,ProgressBar){
         fill:'none',
         strokeLinecap:'round',
         strokedasharray:'0,10000',
-        value:'30'
+        value:'65'
     };
     var probar4=new ProgressBar(setting4);
     probar4.init();
@@ -73,7 +73,7 @@ require(['jquery','ProgressBar'],function($,ProgressBar){
         fill:'none',
         strokeLinecap:'round',
         strokedasharray:'0,10000',
-        value:'60'
+        value:'20'
     };
     var probar5=new ProgressBar(setting5);
     probar5.init();
@@ -87,7 +87,7 @@ require(['jquery','ProgressBar'],function($,ProgressBar){
         fill:'none',
         strokeLinecap:'round',
         strokedasharray:'0,10000',
-        value:'88'
+        value:'80'
     };
     var probar6=new ProgressBar(setting6);
     probar6.init();
