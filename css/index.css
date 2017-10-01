@@ -32,6 +32,22 @@ h5 {
     text-transform: uppercase;
     font-weight: 700;
 }
+/*#load{
+    width: 100%;
+    height: 100%;
+    background: white;
+    z-index: 10000;
+    position: absolute;
+    left:0;
+    right: 0;
+    bottom: 0;
+    top:0;
+}
+.load-img{
+    width: 10rem;
+    height: 10rem;
+margin: 10rem auto;
+}*/
 .smallbox{
     width: 2rem;
     height: 2rem;
@@ -39,15 +55,20 @@ h5 {
     position: fixed;
     bottom: 1rem;
     right: 1rem;
-    text-align: center;
-    line-height: 2rem;
-    padding-top: 0.3rem;
-    font-size: 2rem;
     border-radius: 10%;
     z-index: 5;
     float: inherit;
     cursor: pointer;
     display: none;
+}
+
+.smallbox span{
+    width: 100%;
+    height: 100%;
+    border-radius: 10%;
+    text-align: center;
+    line-height: 2rem;
+    font-size: 1.2rem;
 }
 /*HEADER²¿·Ö*/
 header{
